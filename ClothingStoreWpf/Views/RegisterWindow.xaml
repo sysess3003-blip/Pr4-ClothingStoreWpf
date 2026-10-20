@@ -1,0 +1,27 @@
+<Window x:Class="ClothingStoreWpf.Views.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация покупателя" Height="520" Width="510" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner" Background="{StaticResource PageBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="22">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" /><RowDefinition Height="Auto" /><RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Создание учётной записи" FontSize="20" FontWeight="Bold" Margin="4,0,4,10" />
+            <Grid Grid.Row="1"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="ФИО *" VerticalAlignment="Center" Margin="4"/><TextBox x:Name="FullNameBox" Grid.Column="1" /></Grid>
+            <Grid Grid.Row="2"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="Электронная почта *" VerticalAlignment="Center" Margin="4"/><TextBox x:Name="EmailBox" Grid.Column="1" /></Grid>
+            <Grid Grid.Row="3"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="Телефон" VerticalAlignment="Center" Margin="4"/><TextBox x:Name="PhoneBox" Grid.Column="1" /></Grid>
+            <Grid Grid.Row="4"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="Город *" VerticalAlignment="Center" Margin="4"/><TextBox x:Name="CityBox" Grid.Column="1" /></Grid>
+            <Grid Grid.Row="5"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="Логин *" VerticalAlignment="Center" Margin="4"/><TextBox x:Name="LoginBox" Grid.Column="1" /></Grid>
+            <Grid Grid.Row="6"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="Пароль *" VerticalAlignment="Center" Margin="4"/><PasswordBox x:Name="PasswordInput" Grid.Column="1" /></Grid>
+            <Grid Grid.Row="7"><Grid.ColumnDefinitions><ColumnDefinition Width="135" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions><TextBlock Text="Повтор пароля *" VerticalAlignment="Center" Margin="4"/><PasswordBox x:Name="ConfirmPasswordInput" Grid.Column="1" /></Grid>
+            <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+                <Button Content="Отмена" IsCancel="True" />
+                <Button Content="Зарегистрироваться" IsDefault="True" Click="Register_Click" Background="{StaticResource AccentBrush}" Foreground="White" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

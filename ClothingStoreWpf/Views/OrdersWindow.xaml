@@ -1,0 +1,34 @@
+<Window x:Class="ClothingStoreWpf.Views.OrdersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Заказы" Height="580" Width="1000" MinWidth="850" MinHeight="450"
+        WindowStartupLocation="CenterOwner" Background="{StaticResource PageBrush}">
+    <Grid Margin="16">
+        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="2,0,2,10">
+            <TextBlock x:Name="HeaderText" Text="Заказы" FontSize="21" FontWeight="Bold" />
+            <TextBlock x:Name="AccessHint" Text="Список заказов" Foreground="#657080" Margin="0,3,0,0" />
+        </StackPanel>
+        <DataGrid x:Name="OrdersGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False"
+                  SelectionMode="Single" SelectionUnit="FullRow" HeadersVisibility="Column" GridLinesVisibility="Horizontal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding OrderID}" Width="55" />
+                <DataGridTextColumn Header="Покупатель" Binding="{Binding CustomerName}" Width="*" />
+                <DataGridTextColumn Header="Дата" Binding="{Binding OrderDate, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Width="135" />
+                <DataGridTextColumn Header="Статус" Binding="{Binding OrderStatus}" Width="120" />
+                <DataGridTextColumn Header="Адрес доставки" Binding="{Binding DeliveryAddress}" Width="2*" />
+                <DataGridTextColumn Header="Сумма, ₽" Binding="{Binding Total, StringFormat={}{0:N2}}" Width="105" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DockPanel Grid.Row="2" Margin="0,10,0,0">
+            <StackPanel x:Name="ManagePanel" Orientation="Horizontal" DockPanel.Dock="Left">
+                <TextBlock Text="Новый статус:" VerticalAlignment="Center" Margin="4" />
+                <ComboBox x:Name="StatusComboBox" Width="140" VerticalContentAlignment="Center" Margin="4" />
+                <Button x:Name="UpdateStatusButton" Content="Изменить статус" Click="UpdateStatus_Click" />
+                <Button x:Name="DeleteOrderButton" Content="Удалить заказ" Click="DeleteOrder_Click" />
+            </StackPanel>
+            <Button Content="Обновить" DockPanel.Dock="Right" Click="Refresh_Click" />
+            <Button Content="Закрыть" DockPanel.Dock="Right" IsCancel="True" />
+        </DockPanel>
+    </Grid>
+</Window>
