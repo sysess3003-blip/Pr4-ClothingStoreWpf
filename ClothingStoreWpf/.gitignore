@@ -1,0 +1,11 @@
+# Visual Studio / .NET build outputs
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# Build packages
+*.nupkg
